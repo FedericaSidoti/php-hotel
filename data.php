@@ -42,6 +42,15 @@
 
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhP Hotel</title>
+</head>
+<body>
 <?php
 foreach($hotels as $hotel) {
     $name= $hotel['name'];
@@ -55,14 +64,15 @@ foreach($hotels as $hotel) {
     } else {
         $parking_confirm = 'no'; 
     }
-
-    ?>
-    <p> Nome Hotel: <?php  echo $name; ?> </p>
+?>
+<p> Nome Hotel: <?php  echo $name; ?> </p>
     <p> Descrizione Hotel: <?php  echo $des; ?> </p>
     <p> Votazione : <?php  echo $vote; ?> </p>
     <p> Distanza dal centro: <?php  echo $distance; ?> km </p>
     <p> Il parcheggio è presente? <?php  echo $parking_confirm; ?> </p>
-    <?php
+<?php
 }
-
 ?>
+</body>
+</html>
+    
