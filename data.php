@@ -45,9 +45,23 @@
 <?php
 foreach($hotels as $hotel) {
     $name= $hotel['name'];
+    $des = $hotel['description'];
+    $vote = $hotel['vote']; 
+    $distance= $hotel['distance_to_center'];
+    $parking_confirm= '';
+
+    if ($hotel['parking'] === 'true') {
+        $parking_confirm = 'si';
+    } else {
+        $parking_confirm = 'no'; 
+    }
 
     ?>
-    <p> <?php  echo $name; ?> </p>
+    <p> Nome Hotel: <?php  echo $name; ?> </p>
+    <p> Descrizione Hotel: <?php  echo $des; ?> </p>
+    <p> Votazione : <?php  echo $vote; ?> </p>
+    <p> Distanza dal centro: <?php  echo $distance; ?> km </p>
+    <p> Il parcheggio è presente? <?php  echo $parking_confirm; ?> </p>
     <?php
 }
 
