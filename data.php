@@ -49,30 +49,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhP Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<?php
-foreach($hotels as $hotel) {
-    $name= $hotel['name'];
-    $des = $hotel['description'];
-    $vote = $hotel['vote']; 
-    $distance= $hotel['distance_to_center'];
-    $parking_confirm= '';
+    <div class='container'>
+    <table class="table table-primary mt-5"> 
+        <thead>
+            <tr>
+                <th scope="col">Nome Hotel</th>
+                <th scope="col">Descrizione Hotel</th>
+                <th scope='col'>Votazione</th>
+                <th scope="col">Distanza dal centro</th>
+                <th scope="col">Il parcheggio?</th>
+            </tr>
+        </thead>
+        <?php
+        foreach($hotels as $hotel) {
+            $name= $hotel['name'];
+            $des = $hotel['description'];
+            $vote = $hotel['vote']; 
+            $distance= $hotel['distance_to_center'];
+            $parking_confirm= '';
 
-    if ($hotel['parking'] === 'true') {
-        $parking_confirm = 'si';
-    } else {
-        $parking_confirm = 'no'; 
+        if ($hotel['parking'] === 'true') {
+            $parking_confirm = 'presente';
+        } else {
+            $parking_confirm = 'non presente'; 
+        }
+        ?>
+        <tbody>
+            <tr>
+                <td><?php  echo $name; ?></td>
+                <td><?php  echo $des; ?></td>
+                <td><?php  echo $vote; ?></td>
+                <td><?php  echo $distance; ?> km </td>
+                <td><?php  echo $parking_confirm; ?></td>
+            </tr>
+        </tbody>
+        <?php
     }
-?>
-<p> Nome Hotel: <?php  echo $name; ?> </p>
-    <p> Descrizione Hotel: <?php  echo $des; ?> </p>
-    <p> Votazione : <?php  echo $vote; ?> </p>
-    <p> Distanza dal centro: <?php  echo $distance; ?> km </p>
-    <p> Il parcheggio è presente? <?php  echo $parking_confirm; ?> </p>
-<?php
-}
-?>
+    ?>
+    </table>
+    </div>
+    
+
+
 </body>
 </html>
     
