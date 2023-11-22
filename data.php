@@ -71,11 +71,11 @@
             $distance= $hotel['distance_to_center'];
             $parking_confirm= '';
 
-        if ($hotel['parking'] === 'true') {
-            $parking_confirm = 'presente';
-        } else {
-            $parking_confirm = 'non presente'; 
-        }
+            if ($hotel['parking'] === true) {
+                $parking_confirm = 'presente';
+            } else {
+                $parking_confirm = 'non presente'; 
+            }
         ?>
         <tbody>
             <tr>
